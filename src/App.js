@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Header from './components/fragments/Header';
+import MenuLeft from './components/fragments/MenuLeft';
+import Main from './components/pages/Main';
+import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const useStyles = makeStyles((theme) => ({
+	root: {
+		display: 'flex'
+	}
+}));
+
+export default function App() {
+	const classes = useStyles();
+	return (
+		<div className={classes.root}>
+			<Header />
+			<CssBaseline />
+			<MenuLeft />
+			<Main />
+		</div>
+	);
 }
-
-export default App;

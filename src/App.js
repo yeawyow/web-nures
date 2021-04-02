@@ -6,10 +6,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Login from './components/pages/Login';
+import { Toolbar } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		display: 'flex'
+	},
+	content: {
+		flexGrow: 1,
+		padding: theme.spacing(3)
 	}
 }));
 
@@ -20,12 +25,15 @@ export default function App() {
 			<Router>
 				<Header />
 				<CssBaseline />
-
-				<Switch>
-					<Route exact path="/" component={Main} />
-					<Route path="/login" component={Login} />
-				</Switch>
 				<MenuLeft />
+				<main className={classes.content}>
+					<Toolbar />
+					<Switch>
+						<Route exact path="/" component={Main} />
+						<Route path="/login" component={Login} />
+						<Route path="/home" component={Main} />
+					</Switch>
+				</main>
 			</Router>
 		</div>
 	);

@@ -15,14 +15,12 @@ export default function Header() {
 	const classes = useStyles();
 
 	return (
-		<div>
-			<AppBar position="fixed" className={classes.appBar}>
-				<Toolbar>
-					<Typography variant="h6" noWrap>
-						Clipped drawer
-					</Typography>
-				</Toolbar>
-			</AppBar>
-		</div>
+		<AppBar position="fixed" className={classes.appBar}>
+			<Toolbar>
+				<Typography variant="h6" noWrap>
+					ฝ่ายการพยาบาลโรงพยาบาลอากาศอำนวย
+				</Typography>
+			</Toolbar>
+		</AppBar>
 	);
 }

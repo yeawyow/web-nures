@@ -1,55 +1,65 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { Toolbar } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import { TextField } from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
 	root: {
-		minWidth: 275
+		maxWidth: 345
 	},
-	bullet: {
-		display: 'inline-block',
-		margin: '0 2px',
-		transform: 'scale(0.8)'
+	media: {
+		height: 100
 	},
-	title: {
-		fontSize: 14
-	},
-	pos: {
-		marginBottom: 12
+	submit: {
+		margin: theme.spacing(3, 0, 2)
 	}
-});
+}));
 
 export default function Login() {
 	const classes = useStyles();
-	const bull = <span className={classes.bullet}>•</span>;
 
 	return (
-		<Card className={classes.root}>
-			<Toolbar />
-			<CardContent>
-				<Typography className={classes.title} color="textSecondary" gutterBottom>
-					Word of the Day
-				</Typography>
-				<Typography variant="h5" component="h2">
-					be{bull}nev{bull}o{bull}lent
-				</Typography>
-				<Typography className={classes.pos} color="textSecondary">
-					adjective
-				</Typography>
-				<Typography variant="body2" component="p">
-					well meaning and kindly.
-					<br />
-					{'"a benevolent smile"'}
-				</Typography>
-			</CardContent>
-			<CardActions>
-				<Button size="small">Learn More</Button>
-			</CardActions>
-		</Card>
+		<Grid container spacing={0} alignItems="center" justify="center">
+			<Grid item xs={6}>
+				<Card className={classes.root}>
+					<CardContent>
+						<Typography gutterBottom variant="h5" component="h2">
+							เข้าสู่ระบบ
+						</Typography>
+
+						<TextField
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							id="username"
+							label="ชื่อผู้ใช้งาน"
+							autoFocus
+						/>
+						<TextField
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							name="password"
+							label="Password"
+							type="password"
+							id="passwordjwt"
+							autoComplete="current-password"
+						/>
+						<Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+							ตกลง
+						</Button>
+					</CardContent>
+				</Card>
+			</Grid>
+		</Grid>
 	);
 }

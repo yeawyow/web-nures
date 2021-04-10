@@ -9,6 +9,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import Toolbar from '@material-ui/core/Toolbar';
+import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -38,12 +39,9 @@ export default function MenuLeft() {
 			<Toolbar />
 			<div className={classes.drawerContainer}>
 				<List>
-					{[ 'Inbox', 'Starred', 'Send email', 'Drafts' ].map((text, index) => (
-						<ListItem button key={text}>
-							<ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-							<ListItemText primary={text} />
-						</ListItem>
-					))}
+					<Button onClick={() => props.history.push('/register')} fullWidth size="small" color="primary">
+						Register
+					</Button>
 				</List>
 				<Divider />
 				<List>

@@ -29,9 +29,8 @@ export default function App() {
 				<main className={classes.content}>
 					<Toolbar />
 					<Switch>
-						<Route exact path="/" component={Main} />
-						<Route path="/login" component={Login} />
-						<Route path="/home" component={Main} />
+						<Route exact path={`${process.env.PUBLIC_URL}/`} component={Main} />
+						<Route path={`${process.env.PUBLIC_URL}/login`} component={Login} />
 					</Switch>
 				</main>
 			</Router>

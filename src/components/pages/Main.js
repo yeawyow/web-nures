@@ -1,36 +1,69 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Toolbar from '@material-ui/core/Toolbar';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import FormLabel from "@material-ui/core/FormLabel";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import Radio from "@material-ui/core/Radio";
+import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles((theme) => ({
-	toolbar: theme.mixins.toolbar
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    height: 140,
+    width: 100,
+  },
+  control: {
+    padding: theme.spacing(2),
+  },
 }));
+
 export default function Main() {
-	const classes = useStyles();
-	return (
-		<div>
-			<Typography paragraph>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-				dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Risus at
-				ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus. Convallis
-				convallis tellus id interdum velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-				adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies integer quis. Cursus euismod quis
-				viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-				quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget arcu
-				dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-				faucibus et molestie ac.
-			</Typography>
-			<Typography paragraph>
-				Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla facilisi etiam
-				dignissim diam. Pulvinar elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi
-				lacus sed viverra tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis sed odio
-				morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi tincidunt ornare massa eget egestas purus
-				viverra accumsan in. In hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam
-				aliquam sem et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-				nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas accumsan lacus
-				vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-			</Typography>
-		</div>
-	);
+  const [spacing, setSpacing] = React.useState(2);
+  const classes = useStyles();
+
+  const handleChange = (event) => {
+    setSpacing(Number(event.target.value));
+  };
+
+  return (
+    <Grid container className={classes.root} spacing={2}>
+      <Grid item xs={12}>
+        <Grid container justify="center" spacing={spacing}>
+          {[0, 1].map((value) => (
+            <Grid key={value} item>
+              <Paper className={classes.paper} />
+            </Grid>
+          ))}
+        </Grid>
+      </Grid>
+      <Grid item xs={12}>
+        <Paper className={classes.control}>
+          <Grid container>
+            <Grid item>
+              <FormLabel>spacing</FormLabel>
+              <RadioGroup
+                name="spacing"
+                aria-label="spacing"
+                value={spacing.toString()}
+                onChange={handleChange}
+                row
+              >
+                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
+                  <FormControlLabel
+                    key={value}
+                    value={value.toString()}
+                    control={<Radio />}
+                    label={value.toString()}
+                  />
+                ))}
+              </RadioGroup>
+            </Grid>
+          </Grid>
+        </Paper>
+      </Grid>
+    </Grid>
+  );
 }

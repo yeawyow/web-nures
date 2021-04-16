@@ -1,69 +1,107 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import FormLabel from "@material-ui/core/FormLabel";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import Radio from "@material-ui/core/Radio";
-import Paper from "@material-ui/core/Paper";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    height: 140,
-    width: 100,
-  },
-  control: {
-    padding: theme.spacing(2),
-  },
-}));
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import Radio from '@material-ui/core/Radio';
+import Paper from '@material-ui/core/Paper';
+import { Container } from '@material-ui/core';
 
 export default function Main() {
-  const [spacing, setSpacing] = React.useState(2);
-  const classes = useStyles();
-
-  const handleChange = (event) => {
-    setSpacing(Number(event.target.value));
-  };
-
-  return (
-    <Grid container className={classes.root} spacing={2}>
-      <Grid item xs={12}>
-        <Grid container justify="center" spacing={spacing}>
-          {[0, 1].map((value) => (
-            <Grid key={value} item>
-              <Paper className={classes.paper} />
-            </Grid>
-          ))}
-        </Grid>
-      </Grid>
-      <Grid item xs={12}>
-        <Paper className={classes.control}>
-          <Grid container>
-            <Grid item>
-              <FormLabel>spacing</FormLabel>
-              <RadioGroup
-                name="spacing"
-                aria-label="spacing"
-                value={spacing.toString()}
-                onChange={handleChange}
-                row
-              >
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
-                  <FormControlLabel
-                    key={value}
-                    value={value.toString()}
-                    control={<Radio />}
-                    label={value.toString()}
-                  />
-                ))}
-              </RadioGroup>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Grid>
-    </Grid>
-  );
+	return (
+		<div>
+			<Container maxWidth="md">
+				<h1>This is a home page</h1>
+				<h2>Material-UI Navbar Header</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+					et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+					aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+					culpa qui officia deserunt mollit anim id est laborum."
+				</p>
+				<p>
+					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+					totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+					dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+					sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
+					est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
+					modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
+					veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
+					commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
+					molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+				</p>
+				<p>
+					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+					deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
+					provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum
+					fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis
+					est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis
+					voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis
+					aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non
+					recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+					maiores alias consequatur aut perferendis doloribus asperiores repellat."
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+					et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+					aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+					culpa qui officia deserunt mollit anim id est laborum."
+				</p>
+				<p>
+					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+					totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+					dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+					sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
+					est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
+					modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
+					veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
+					commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
+					molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+				</p>
+				<p>
+					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+					deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
+					provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum
+					fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis
+					est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis
+					voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis
+					aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non
+					recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+					maiores alias consequatur aut perferendis doloribus asperiores repellat."
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+					et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+					aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+					culpa qui officia deserunt mollit anim id est laborum."
+				</p>
+				<p>
+					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+					totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+					dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+					sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
+					est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
+					modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
+					veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
+					commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
+					molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+				</p>
+				<p>
+					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+					deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
+					provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum
+					fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis
+					est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis
+					voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis
+					aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non
+					recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+					maiores alias consequatur aut perferendis doloribus asperiores repellat."
+				</p>
+			</Container>
+		</div>
+	);
 }

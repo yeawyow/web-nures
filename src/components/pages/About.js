@@ -8,19 +8,17 @@ const About = () => {
 	const { url, path } = useRouteMatch();
 	return (
 		<div>
-			<Container maxWidth="md">
-				<h1>ข้อมูลหน่วยงาน</h1>
-				<ul>
-					<li>
-						<Link to={`${url}/vision`}>วิสัยทัศน์ พันธกิจ</Link>
-					</li>
-					<li>
-						<Link to={`${url}/nurseStruct`}>โครงสร้าง</Link>
-					</li>
-				</ul>
-				<Route exact path={`${path}/vision`} component={Visions} />
-				<Route exact path={`${path}/nurseStruct`} component={NureStruct} />
-			</Container>
+			<h1>ข้อมูลหน่วยงาน</h1>
+			<ul>
+				<li>
+					<Link to={`${url}/vision`}>วิสัยทัศน์ พันธกิจ</Link>
+				</li>
+				<li>
+					<Link to={`${url}/nurseStruct`}>โครงสร้าง</Link>
+				</li>
+			</ul>
+			<Route exact path={`${path}/vision`} component={Visions} />
+			<Route exact path={`${path}/nurseStruct`} component={NureStruct} />
 		</div>
 	);
 };

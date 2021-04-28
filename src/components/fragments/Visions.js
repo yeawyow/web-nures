@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
 export default function Visions() {
-  return <div>วิสัยทัศน์ พันธกิจ 2</div>;
+	return <div>วิสัยทัศน์ พันธกิจ</div>;
 }

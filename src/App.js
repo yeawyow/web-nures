@@ -10,14 +10,34 @@ import NavBar from './components/fragments/Navbar';
 const useStyle = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1
+	},
+	content: {
+		padding: 10
 	}
 }));
 export default function App() {
 	const theme = createMuiTheme({
 		palette: {
 			primary: {
-				500: '#f73378'
+				main: '#f73378'
+			},
+			secondary: {
+				light: '#ff7961',
+				main: '#f44336',
+				dark: '#ba000d',
+				contrastText: '#000'
 			}
+		},
+		typography: {
+			fontFamily: [
+				'-apple-system',
+				'BlinkMacSystemFont',
+				'"Segoe UI"',
+				'Roboto',
+				'"Kanit"',
+				'Kanit',
+				'sans-serif'
+			].join(',')
 		}
 	});
 

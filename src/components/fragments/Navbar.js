@@ -62,7 +62,7 @@ function NavBar() {
 		{ title: `ภาพกิจกรรม`, path: `/` },
 		{ title: `บุคลากร`, path: `/blog` },
 		{ title: `ดาวน์โหลดเอกสาร`, path: `/contact` },
-		{ title: `faq`, path: `/faq` }
+		{ title: `Login`, path: `/login` }
 	];
 	const renderMobileMenu = (
 		<Menu
@@ -92,31 +92,29 @@ function NavBar() {
 	};
 	return (
 		<AppBar position="static">
-			<Toolbar>
-				<div className={classes.sectionDesktop}>
-					{navLinks.map(({ title, path }) => (
-						<Button
-							key={title}
-							onClick={() => history.push(`${process.env.PUBLIC_URL}` + `${path}`)}
-							className={classes.linkText}
-						>
-							{title}
-						</Button>
-					))}
-				</div>
-				<div className={classes.sectionMobile}>
-					<IconButton
-						aria-label="show more"
-						//  aria-controls={mobileMenuId}
-						aria-haspopup="true"
-						onClick={handleClick}
-						color="inherit"
+			<div className={classes.sectionDesktop}>
+				{navLinks.map(({ title, path }) => (
+					<Button
+						key={title}
+						onClick={() => history.push(`${process.env.PUBLIC_URL}` + `${path}`)}
+						className={classes.linkText}
 					>
-						<MenuIcon />
-					</IconButton>
-					{renderMobileMenu}
-				</div>
-			</Toolbar>
+						{title}
+					</Button>
+				))}
+			</div>
+			<div className={classes.sectionMobile}>
+				<IconButton
+					aria-label="show more"
+					//  aria-controls={mobileMenuId}
+					aria-haspopup="true"
+					onClick={handleClick}
+					color="inherit"
+				>
+					<MenuIcon />
+				</IconButton>
+				{renderMobileMenu}
+			</div>
 		</AppBar>
 	);
 }

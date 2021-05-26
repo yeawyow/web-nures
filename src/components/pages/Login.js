@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { TextField } from '@material-ui/core';
-
+import {Form, Formik} from 'formik'
 const useStyles = makeStyles((theme) => ({
 	root: {
 		marginTop: 10
@@ -22,7 +22,34 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-export default function Login() {
+
+export default function Login() {function showForm(){
+return	(
+		<form noValidate >
+			<TextField
+						variant="outlined"
+						margin="normal"
+						required
+						fullWidth
+						id="username"
+						label="ชื่อผู้ใช้งาน"
+						autoFocus
+					/>
+					<TextField
+						variant="outlined"
+						margin="normal"
+						required
+						fullWidth
+						name="password"
+						label="Password"
+						type="password"
+						id="passwordjwt"
+						autoComplete="current-password"
+					/>
+		</form>
+
+	)
+}
 	const classes = useStyles();
 
 	return (
@@ -34,29 +61,14 @@ export default function Login() {
 							เข้าสู่ระบบ
 						</Typography>
 
-						<TextField
-							variant="outlined"
-							margin="normal"
-							required
-							fullWidth
-							id="username"
-							label="ชื่อผู้ใช้งาน"
-							autoFocus
-						/>
-						<TextField
-							variant="outlined"
-							margin="normal"
-							required
-							fullWidth
-							name="password"
-							label="Password"
-							type="password"
-							id="passwordjwt"
-							autoComplete="current-password"
-						/>
+	<Formik>
+		{props=>showForm(props)}
+	</Formik>
+					
 						<Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
 							ตกลง
 						</Button>
+
 					</CardContent>
 				</Card>
 			</Grid>
